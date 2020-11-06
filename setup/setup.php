@@ -62,3 +62,17 @@ $table      .= "ALTER TABLE `yorum`MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, 
 $sql        = $db->query($table)->exec();
 echo "Tablo Increment Değeleri Oluşturuldu<br>";
 
+
+
+/*
+ * İçerikler ve default değerler ekleniyor.
+ * */
+$table      = "INSERT INTO `etiket` (`id`, `baslik`, `url`, `aciklama`, `eklenme_tarihi`, `guncellenme_tarihi`, `silinme_tarihi`) VALUES (1, 'default', 'default', 'default', '2020-11-05 15:28:47', '2020-11-05 15:28:47', NULL);";
+$table      .= "INSERT INTO `kategori` (`id`, `baslik`, `baslik_ic`, `ust_kategori`, `aciklama`, `url`, `eklenme_tarihi`, `guncellenme_tarihi`, `silinme_tarihi`) VALUES (1, 'Genel', 'Genel', 0, '', 'genel', '2020-11-05 15:25:56', '2020-11-05 21:08:45', NULL), (2, 'Başka Bir Kategori', 'Başka Bir Kategori', 0, 'Başka Bir Kategori', 'baska-bir-kategori', '2020-11-05 19:00:58', '2020-11-05 19:00:58', NULL);";
+$table      .= "INSERT INTO `site` (`id`, `baslik`, `baslik_ic`, `aciklama`, `kelime`, `url`, `cdnurl`, `facebook`, `instagram`, `google`, `twitter`, `linkedin`, `pinterest`, `medium`, `email`, `youtube`) VALUES (1, 'Blog Adı', 'Blog Adı', 'blog sitesi', 'blog sitesi', 'domain', 'domain/assets', '', '', '', '', '', '', '', '', NULL);";
+$table      .= "INSERT INTO `uye` (`id`, `kullanici`, `sifre`, `isim`, `eposta`, `yetki`, `rutbe`, `aktif`, `il`, `dogum_tarihi`, `eklenme_tarihi`, `guncellenme_tarihi`, `silinme_tarihi`) VALUES (1, 'admin', '95d45733aa1f4803ccdc3d44dcbc01044240b2ff', 'Blog Sistemi', 'info@blogsitesi.com', 1, 1, 1, 34, '2000-10-01', '2019-02-24 00:00:00', '2019-02-24 00:00:00', NULL);";
+$sql        = $db->query($table)->exec();
+
+echo "İçerikler ve default değerler eklendi<br>";
+
+
