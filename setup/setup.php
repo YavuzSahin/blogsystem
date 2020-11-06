@@ -38,7 +38,7 @@ if(!isset($_GET['step'])){header('location:?step=1');}
                         <h4>Veritabanı Bilgileri</h4>
                     </div>
                     <div class="card-body">
-                        <p class="mt-10 mb-10">Blog sistemi otomatik kurulumu için sizden istenen bilgileri eksik giriniz.</p><br><br>
+                        <p class="mt-10 mb-10">Blog sistemi otomatik kurulumu için sizden istenen bilgileri eksik giriniz.</p><br>
                         <?php
                             switch ($_GET['step']){
                                 case'1':
@@ -63,6 +63,22 @@ if(!isset($_GET['step'])){header('location:?step=1');}
                         <?php
                                     break;
                                 case'2':
+                                    $contents   = file_get_contents('configdate.json');
+                                    $dbname     = json_decode($contents, true);
+                                    $dbuser     = json_decode($contents, true);
+                                    $dbpass     = json_decode($contents, true);
+
+                                    $dbname     = $_POST['dbname'];
+                                    $dbuser     = $_POST['dbuser'];
+                                    $dbpass     = $_POST['dbpass'];
+                                    $contentsDecoded = ['dbname'=>$dbname, 'dbuser'=>$dbuser, 'dbpass'=>$dbpass];
+                                    $json = json_encode($contentsDecoded);
+                                    file_put_contents('configdate.json', $json);
+
+
+
+
+
                                     $sql        = $db->query("ALTER DATABASE " . db_name . " CHARACTER SET " .$charset. " COLLATE " . $collation . ";")->exec();
                                     echo "Database karakter seti başarıyla güncellendi..<br>";
                                     /*--------*/
