@@ -68,11 +68,8 @@ if(!isset($_GET['step'])){header('location:?step=1');}
                                     $dbpass     = $_POST['dbpass'];
                                     $contentsDecoded = ['dbname'=>$dbname, 'dbuser'=>$dbuser, 'dbpass'=>$dbpass];
 
-                                    $fp = fopen('configdate.json', 'w');
                                     echo json_encode($contentsDecoded);
-                                    fwrite($fp, json_encode($contentsDecoded));
-                                    fclose($fp);
-
+                                    file_put_contents(json_encode($contentsDecoded));
 
 
                                     $sql        = $db->query("ALTER DATABASE " . db_name . " CHARACTER SET " .$charset. " COLLATE " . $collation . ";")->exec();
