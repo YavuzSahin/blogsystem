@@ -1,4 +1,6 @@
 <?php
+include_once 'config.php';
+
     function compress_page($buffer) {
         return preg_replace(array('/<!--(.*)-->/Uis',"/[[:blank:]]+/"),array('',' '),str_replace(array("\n","\r","\t"),'',$buffer));
     }
@@ -21,9 +23,9 @@
         $config = [
             'host'		=> 'localhost',
             'driver'	=> 'mysql',
-            'database'	=> 'icnflt_blog',
-            'username'	=> 'icnflt_user',
-            'password'	=> 'SenolOcak1020**',
+            'database'	=> db_name,
+            'username'	=> db_user,
+            'password'	=> db_pass,
             'charset'	=> 'utf8',
             'collation'	=> 'utf8_general_ci',
             'prefix'	 => ''

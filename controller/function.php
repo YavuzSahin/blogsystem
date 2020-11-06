@@ -1,5 +1,6 @@
 <?php
 include_once '../vendor/autoload.php';
+include_once 'config.php';
     function seoUrl($s) {
         $tr = array('ş','Ş','ı','I','İ','ğ','Ğ','ü','Ü','ö','Ö','Ç','ç','(',')','/',':',',', '?', "'");
         $eng = array('s','s','i','i','i','g','g','u','u','o','o','c','c','','','-','-','', '', "");
@@ -18,9 +19,9 @@ include_once '../vendor/autoload.php';
         $config = [
             'host'		=> 'localhost',
             'driver'	=> 'mysql',
-            'database'	=> 'icnflt_blog',
-            'username'	=> 'icnflt_user',
-            'password'	=> 'SenolOcak1020**',
+            'database'	=> db_name,
+            'username'	=> db_user,
+            'password'	=> db_pass,
             'charset'	=> 'utf8',
             'collation'	=> 'utf8_general_ci',
             'prefix'	 => ''
