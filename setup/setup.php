@@ -68,10 +68,7 @@ if(!isset($_GET['step'])){header('location:?step=1');}
                                     $dbpass     = $_POST['dbpass'];
                                     $contentsDecoded = ['dbname'=>$dbname, 'dbuser'=>$dbuser, 'dbpass'=>$dbpass];
 
-                                    $inp            = file_get_contents('../configdate.json');
-                                    $tempArray      = json_decode($inp);
-                                    array_push($tempArray, $contentsDecoded);
-                                    $jsonData       = json_encode($tempArray);
+                                    $jsonData       = json_encode($contentsDecoded);
                                     file_put_contents('../configdate.json', $jsonData);
 
 
