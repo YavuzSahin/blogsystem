@@ -33,7 +33,7 @@ if(!isset($_GET['step'])){header('location:?step=1');}
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3 mt-10">
-                <p>Blog sistemi otomatik kurulumu için sizden istenen bilgileri eksik giriniz.</p><br>
+                <p class="mt-10 mb-10">Blog sistemi otomatik kurulumu için sizden istenen bilgileri eksik giriniz.</p><br>
                 <div class="card">
                     <div class="card-header">
                         <h4>Veritabanı Bilgileri</h4>
