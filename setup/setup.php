@@ -43,7 +43,7 @@ if(!isset($_GET['step'])){header('location:?step=1');}
                             switch ($_GET['step']){
                                 case'1':
                         ?>
-                                <form action="setup.php?step=2">
+                                <form action="setup.php?step=2" method="post">
                                     <div class="form-group">
                                         <label>Veritabanı Adı</label>
                                         <input type="text" name="dbname" class="form-control">
