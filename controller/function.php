@@ -1,6 +1,6 @@
 <?php
 include_once '../vendor/autoload.php';
-include_once 'config.php';
+include_once '../config.php';
     function seoUrl($s) {
         $tr = array('ş','Ş','ı','I','İ','ğ','Ğ','ü','Ü','ö','Ö','Ç','ç','(',')','/',':',',', '?', "'");
         $eng = array('s','s','i','i','i','g','g','u','u','o','o','c','c','','','-','-','', '', "");
