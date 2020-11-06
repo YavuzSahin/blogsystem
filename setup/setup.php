@@ -63,19 +63,16 @@ if(!isset($_GET['step'])){header('location:?step=1');}
                         <?php
                                     break;
                                 case'2':
-                                    $contents   = file_get_contents('configdate.json');
-                                    $dbname     = json_decode($contents, true);
-                                    $dbuser     = json_decode($contents, true);
-                                    $dbpass     = json_decode($contents, true);
-
                                     $dbname     = $_POST['dbname'];
                                     $dbuser     = $_POST['dbuser'];
                                     $dbpass     = $_POST['dbpass'];
                                     $contentsDecoded = ['dbname'=>$dbname, 'dbuser'=>$dbuser, 'dbpass'=>$dbpass];
-                                    $json = json_encode($contentsDecoded);
-                                    file_put_contents('configdate.json', $json);
 
-
+                                    $inp            = file_get_contents('configdate.json');
+                                    $tempArray      = json_decode($inp);
+                                    array_push($tempArray, $contentsDecoded);
+                                    $jsonData       = json_encode($tempArray);
+                                    file_put_contents('configdate.json', $jsonData);
 
 
 
