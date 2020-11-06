@@ -38,7 +38,7 @@ if(!isset($_GET['step'])){header('location:?step=1');}
                         <h4>Veritabanı Bilgileri</h4>
                     </div>
                     <div class="card-body">
-                        <small class="mt-10 mb-10">Blog sistemi otomatik kurulumu için sizden istenen bilgileri eksik giriniz.</small><br><br>
+                        <p class="mt-10 mb-10">Blog sistemi otomatik kurulumu için sizden istenen bilgileri eksik giriniz.</p><br><br>
                         <?php
                             switch ($_GET['step']){
                                 case'1':
