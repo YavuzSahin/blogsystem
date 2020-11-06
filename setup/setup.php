@@ -33,12 +33,12 @@ if(!isset($_GET['step'])){header('location:?step=1');}
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3 mt-10">
-                <div class="card">
+                <div class="card" style="margin-top: 20px;">
                     <div class="card-header">
                         <h4>Veritabanı Bilgileri</h4>
                     </div>
                     <div class="card-body">
-                        <p class="mt-10 mb-10">Blog sistemi otomatik kurulumu için sizden istenen bilgileri eksik giriniz.</p><br>
+                        <small class="mt-10 mb-10">Blog sistemi otomatik kurulumu için sizden istenen bilgileri eksik giriniz.</small><br>
                         <?php
                             switch ($_GET['step']){
                                 case'1':
