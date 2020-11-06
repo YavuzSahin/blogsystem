@@ -1,4 +1,5 @@
 <?php
+require_once '../vendor/autoload.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/config.php';
 $config = [
     'host'		=> 'localhost',
@@ -15,14 +16,49 @@ $db         = new \Buki\Pdox($config);
 $collation  = "utf8_general_ci";
 $charset    = "utf8";
 
-$script_path = "../database";
-$sql        = $db->query("ALTER DATABASE " . db_name . " CHARACTER SET " . $charset . " COLLATE " . $collation . ";");
+$sql        = $db->query("ALTER DATABASE " . db_name . " CHARACTER SET " .$charset. " COLLATE " . $collation . ";")->exec();
 
-echo "<div>Database karakter seti başarıyla güncellendi..</div><br>";
+echo "Database karakter seti başarıyla güncellendi..<br>";
+/*--------*/
+$table      = "CREATE TABLE `etiket` (`id` int(11) NOT NULL,`baslik` varchar(200) NOT NULL,`url` varchar(200) NOT NULL,`aciklama` varchar(200) NOT NULL,`eklenme_tarihi` datetime DEFAULT NULL,`guncellenme_tarihi` datetime DEFAULT NULL,`silinme_tarihi` datetime DEFAULT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+$sql        = $db->query($table)->exec();
+echo "Etiket Tablosu Oluşturuldu<br>";
+/*--------*/
+$table      = "CREATE TABLE `kategori` (`id` int(10) NOT NULL,`baslik` varchar(200) NOT NULL,`baslik_ic` varchar(200) NOT NULL,`ust_kategori` int(10) NOT NULL,`aciklama` varchar(200) NOT NULL,`url` varchar(200) NOT NULL,`eklenme_tarihi` datetime NOT NULL,`guncellenme_tarihi` datetime NOT NULL,`silinme_tarihi` datetime DEFAULT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+$sql        = $db->query($table)->exec();
+echo "Kategori Tablosu Oluşturuldu<br>";
+/*--------*/
+$table      = "CREATE TABLE `sayfa` (`id` int(20) NOT NULL,`baslik` varchar(140) NOT NULL,`baslik_ic` varchar(140) NOT NULL,`url` varchar(200) NOT NULL,`kategori` varchar(200) NOT NULL,`icerik` text NOT NULL,`aciklama` varchar(185) NOT NULL,`resim` varchar(300) NOT NULL,`etiketler` varchar(300) NOT NULL,`yazar` int(20) NOT NULL,`okunma` int(200) NOT NULL,`sabit` int(1) DEFAULT NULL,`slider` int(1) DEFAULT NULL,`sponsorlu` int(1) DEFAULT NULL,`anasayfa` int(1) DEFAULT NULL,`eklenme_tarihi` datetime NOT NULL,`guncellenme_tarihi` datetime NOT NULL,`silinme_tarihi` datetime DEFAULT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+$sql        = $db->query($table)->exec();
+echo "Sayfa Tablosu Oluşturuldu<br>";
+/*--------*/
+$table      = "CREATE TABLE `site` (`id` int(1) NOT NULL,`baslik` varchar(200) NOT NULL,`baslik_ic` varchar(50) NOT NULL,`aciklama` varchar(200) NOT NULL,`kelime` varchar(200) NOT NULL,`url` varchar(200) NOT NULL,`cdnurl` varchar(200) NOT NULL,`facebook` varchar(200) NOT NULL,`instagram` varchar(200) NOT NULL,`google` varchar(200) NOT NULL,`twitter` varchar(200) NOT NULL,`linkedin` varchar(200) NOT NULL,`pinterest` varchar(200) NOT NULL,`medium` varchar(200) NOT NULL,`email` varchar(200) NOT NULL,`youtube` varchar(200) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+$sql        = $db->query($table)->exec();
+echo "Site Tablosu Oluşturuldu<br>";
+/*--------*/
+$table      = "CREATE TABLE `uye` (`id` int(30) NOT NULL,`kullanici` varchar(200) NOT NULL,`sifre` varchar(200) NOT NULL,`isim` varchar(200) NOT NULL,`eposta` varchar(200) NOT NULL,`yetki` int(1) NOT NULL,`rutbe` int(2) NOT NULL,`aktif` int(1) NOT NULL,`il` int(11) DEFAULT '5',`dogum_tarihi` date DEFAULT NULL,`eklenme_tarihi` datetime NOT NULL,`guncellenme_tarihi` datetime NOT NULL,`silinme_tarihi` datetime DEFAULT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+$sql        = $db->query($table)->exec();
+echo "Admin Tablosu Oluşturuldu<br>";
+/*--------*/
+$table      = "CREATE TABLE `yorum` (`id` int(20) NOT NULL,`icerik_id` int(20) NOT NULL,`isim` varchar(200) NOT NULL,`eposta` varchar(200) NOT NULL,`yorum` text NOT NULL,`onay` int(1) NOT NULL,`eklenme_tarihi` datetime NOT NULL,`onaylanma_tarihi` datetime DEFAULT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+$sql        = $db->query($table)->exec();
+echo "Yorum Tablosu Oluşturuldu<br>";
+/*--------*/
+$table      = "ALTER TABLE `etiket`ADD PRIMARY KEY (`id`);";
+$table      .= "ALTER TABLE `kategori`ADD PRIMARY KEY (`id`);";
+$table      .= "ALTER TABLE `sayfa`ADD PRIMARY KEY (`id`);";
+$table      .= "ALTER TABLE `site`ADD PRIMARY KEY (`id`);";
+$table      .= "ALTER TABLE `uye`ADD PRIMARY KEY (`id`);";
+$table      .= "ALTER TABLE `yorum`ADD PRIMARY KEY (`id`);";
+$sql        = $db->query($table)->exec();
+echo "Tablo Indexleri Oluşturuldu<br>";
+/*--------*/
+$table      = "ALTER TABLE `etiket` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;";
+$table      .= "ALTER TABLE `kategori` MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;";
+$table      .= "ALTER TABLE `sayfa` MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;";
+$table      .= "ALTER TABLE `site` MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;";
+$table      .= "ALTER TABLE `uye` MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;";
+$table      .= "ALTER TABLE `yorum`MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;";
+$sql        = $db->query($table)->exec();
+echo "Tablo Increment Değeleri Oluşturuldu<br>";
 
-$command = "mysql --user={".db_user."} --password='{".db_pass."}' "
-    . "-h {localhost} -D {".db_name."} < {$script_path}";
-
-$output = shell_exec($command . '/blog.sql');
-
-echo "<div>Database için tablolar oluşturuldu..</div><br>";
