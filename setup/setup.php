@@ -68,7 +68,7 @@ if(!isset($_GET['step'])){header('location:?step=1');}
                                     $dbpass     = $_POST['dbpass'];
                                     $contentsDecoded = ['dbname'=>$dbname, 'dbuser'=>$dbuser, 'dbpass'=>$dbpass];
 
-                                    $fp = fopen('configdate.json', 'w+');
+                                    $fp = fopen('configdate.txt', 'w+');
                                     echo json_encode($contentsDecoded);
                                     fwrite($fp, json_encode($contentsDecoded));
                                     fclose($fp);
