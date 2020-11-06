@@ -7,7 +7,7 @@
                 <ol class="breadcrumb">
                     <li>
                         <i class="fa fa-home"></i>
-                        <a href="<?=$site->url;?>"><?=$site->baslik;?></a>
+                        <a href="<?=$site->url;?>"><?=$site->baslik_ic;?></a>
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li><a href="<?=$site->url;?>/<?=kategoriUrl($pageInfo->id);?>"><?=$pageInfo->baslik?></a></li>
