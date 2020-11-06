@@ -1,5 +1,5 @@
 <?php
-include_once './config.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/config.php';
 $config = [
     'host'		=> 'localhost',
     'driver'	=> 'mysql',
