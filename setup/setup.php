@@ -41,38 +41,7 @@ if(!isset($_GET['step'])){header('location:?step=1');}
                         <p class="mt-10 mb-10">Blog sistemi otomatik kurulumu için sizden istenen bilgileri eksik giriniz.</p><br>
                         <?php
                             switch ($_GET['step']){
-                                case'1':
-                        ?>
-                                <form action="setup.php?step=2" method="post">
-                                    <div class="form-group">
-                                        <label>Veritabanı Adı</label>
-                                        <input type="text" name="dbname" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Veritabanı Kullanıcı Adı</label>
-                                        <input type="text" name="dbuser" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Veritabanı Kullanıcı Şifresi</label>
-                                        <input type="text" name="dbpass" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-sm btn-success">Kaydet!</button>
-                                    </div>
-                                </form>
-                        <?php
-                                    break;
                                 case'2':
-                                    $dbname     = $_POST['dbname'];
-                                    $dbuser     = $_POST['dbuser'];
-                                    $dbpass     = $_POST['dbpass'];
-                                    $contentsDecoded = ['dbname'=>$dbname, 'dbuser'=>$dbuser, 'dbpass'=>$dbpass];
-
-                                    $jsonData       = json_encode($contentsDecoded);
-                                    file_put_contents('../configdate.json', $jsonData);
-
-
-
                                     $sql        = $db->query("ALTER DATABASE " . db_name . " CHARACTER SET " .$charset. " COLLATE " . $collation . ";")->exec();
                                     echo "Database karakter seti başarıyla güncellendi..<br>";
                                     /*--------*/
