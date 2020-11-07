@@ -92,14 +92,14 @@
                                 foreach ($tags as $tag) {
                                     $tagsA[] = $tag->id;
                                 }
-                            $etiketler = explode(',', $tagsA);
+                            //$etiketler = explode(',', $tagsA);
                             ?>
                             <div class="row ts-comments-row align-items-center mb-50">
                                 <div class="col-lg-12 col-md-12">
                                     <div class="ts-author-content">
                                         <div class="comment">
                                             <?php
-                                            foreach ($etiketler as $etiket){
+                                            foreach ($tagsA as $etiket){
                                                 echo etiketGetirUrl(str_replace(', ', '', $etiket));
                                             }
                                             ?>
