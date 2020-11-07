@@ -42,7 +42,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/config.php';
     }
     function kategoriYaziSayisi($id){
         $db = connect();
-        $kategori = $db->table('kategori')->where('id', $id)->count('id', 'total_row')->get();
+        $kategori = $db->table('sayfa')->where('kategori', $id)->count('id', 'total_row')->get();
         return $kategori->total_row;
     }
 
