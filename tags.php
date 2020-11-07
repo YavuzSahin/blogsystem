@@ -10,7 +10,7 @@
                         <a href="<?=$site->url;?>"><?=$site->baslik_ic;?></a>
                         <i class="fa fa-angle-right"></i>
                     </li>
-                    <li><a href="<?=$site->url;?>/<?=kategoriUrl($pageInfo->id);?>"><?=$pageInfo->baslik?></a></li>
+                    <li><a href="<?=$site->url;?>/<?=etiketGetirUrl($pageInfo->id);?>"><?=$pageInfo->baslik?></a></li>
                 </ol>
             </div>
         </div><!-- row end -->
