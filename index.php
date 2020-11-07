@@ -89,7 +89,10 @@
                         <div class="ts-author-comments">
                             <?php
                             $tags = $db->table('etiket')->orderBy('eklenme_tarihi', 'DESC')->limit(20)->getAll();
-                            $etiketler = explode(',', $tags);
+                                foreach ($tags as $tag) {
+                                    $tagsA[] = $tag->id;
+                                }
+                            $etiketler = explode(',', $tagsA);
                             ?>
                             <div class="row ts-comments-row align-items-center mb-50">
                                 <div class="col-lg-12 col-md-12">
