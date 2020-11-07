@@ -3936,7 +3936,7 @@ ul.navbar-nav > li.mega-dropdown {
   border: 1px solid #aaaaaa;
   color: #aaaaaa;
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
   padding: 4px 13px;
   margin-left: 3px;
   margin-bottom: 10px;
@@ -3944,5 +3944,13 @@ ul.navbar-nav > li.mega-dropdown {
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
+}
+.tags a:hover {
+  color: #fff;
+  background: #fc4a00;
+  border-color: #fc4a00;
+}
+.tags a:not(:first-child) {
+  margin-left: 6px;
 }
 /*# sourceMappingURL=style.css.map */
