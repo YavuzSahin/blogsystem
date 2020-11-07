@@ -97,7 +97,7 @@
                             <div class="row ts-comments-row align-items-center mb-50">
                                 <div class="col-lg-12 col-md-12">
                                     <div class="ts-author-content">
-                                        <div class="comment">
+                                        <div class="tags">
                                             <?php
                                             foreach ($tagsA as $etiket){
                                                 echo etiketGetirUrl(str_replace(', ', '', $etiket));

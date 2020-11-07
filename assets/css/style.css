@@ -3932,5 +3932,17 @@ ul.navbar-nav > li.mega-dropdown {
 .sended .error{color: #D06079;}
 
 
-
+.tags a{
+  border: 1px solid #aaaaaa;
+  color: #aaaaaa;
+  display: inline-block;
+  font-size: 14px;
+  padding: 4px 13px;
+  margin-left: 3px;
+  margin-bottom: 10px;
+  border-radius: 36px;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
 /*# sourceMappingURL=style.css.map */
