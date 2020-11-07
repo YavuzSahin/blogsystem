@@ -88,7 +88,7 @@
                         </h2>
                         <div class="ts-author-comments">
                             <?php
-                            $tags = $db->table('etiket')->orderBy('eklenme_tarihi', 'DESC')->limit(20)->getAll();
+                            $tags = $db->table('etiket')->orderBy('eklenme_tarihi', 'DESC')->limit(10)->getAll();
                                 foreach ($tags as $tag) {
                                     $tagsA[] = $tag->id;
                                 }
