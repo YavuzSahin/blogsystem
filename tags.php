@@ -7,7 +7,7 @@
                 <ol class="breadcrumb">
                     <li>
                         <i class="fa fa-home"></i>
-                        <a href="<?=$site->url;?>"><?=$site->baslik;?></a>
+                        <a href="<?=$site->url;?>"><?=$site->baslik_ic;?></a>
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li><a href="<?=$site->url;?>/<?=kategoriUrl($pageInfo->id);?>"><?=$pageInfo->baslik?></a></li>
@@ -27,7 +27,7 @@
                 </h2>
                 <div class="row ts-gutter-20">
                     <?php
-                    $all = $db->table('sayfa')->where('kategori', $pageInfo->id)->getAll();
+                    $all = $db->table('sayfa')->like('etiketler', '%'.$pageInfo->id.'%')->orderBy('guncellenme_tarihi', 'desc')->getAll();
                     foreach ($all as $single){
                     ?>
                     <div class="col-md-3">

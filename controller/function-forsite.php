@@ -188,7 +188,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/config.php';
         $db=connect();
         $site = $db->table('site')->where('id', 1)->get();
         $etiket = $db->table('etiket')->where('id', $id)->get();
-        echo '<a href="'.$site->url.'/etiket/'.$etiket->url.'.html">'.$etiket->baslik.'</a>, ';
+        echo '<a href="'.$site->url.'/etiket/'.$etiket->url.'.html">'.$etiket->baslik.'</a>';
     }
 
     function icerikOnerilen($id){
