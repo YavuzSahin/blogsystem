@@ -156,7 +156,7 @@ ob_start('compress_page');
 <div class="main-nav clearfix is-ts-sticky">
     <div class="container">
         <div class="row justify-content-between">
-            <nav class="navbar navbar-expand-lg col-lg-8">
+            <nav class="navbar navbar-expand-lg col-lg-10">
                 <div class="site-nav-inner float-left">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                         <span class="fa fa-bars"></span>
@@ -246,7 +246,7 @@ ob_start('compress_page');
                 </div><!-- Site Navbar inner end -->
             </nav><!--/ Navigation end -->
 
-            <div class="col-lg-4 text-right nav-social-wrap">
+            <div class="col-lg-2 text-right nav-social-wrap">
 
 
                 <div class="nav-search">

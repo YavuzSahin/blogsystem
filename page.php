@@ -45,7 +45,13 @@
                         </div><!-- post-content-area end -->
                     <div class="post-footer">
                         <div class="tag-lists">
-                            <span>Etiketler: </span><a href="#">fashion</a>
+                            <span>Etiketler: </span>
+                            <?php
+                            $etiketler = explode(',', $pageInfo->etiketler);
+                            foreach ($etiketler as $etiket){
+                                echo etiketGetirUrl(str_replace(', ', '', $etiket));
+                            }
+                            ?>
                         </div><!-- tag lists -->
                         <div class="gap-30"></div>
                         <!-- comments start -->

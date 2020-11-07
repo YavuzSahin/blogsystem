@@ -41,7 +41,7 @@ if(!isset($_GET['step'])){header('location:?step=1');}
                         <p class="mt-10 mb-10">Blog sistemi otomatik kurulumu için sizden istenen bilgileri eksik giriniz.</p><br>
                         <?php
                             switch ($_GET['step']){
-                                case'2':
+                                case'1':
                                     $sql        = $db->query("ALTER DATABASE " . db_name . " CHARACTER SET " .$charset. " COLLATE " . $collation . ";")->exec();
                                     echo "Database karakter seti başarıyla güncellendi..<br>";
                                     /*--------*/
