@@ -81,7 +81,31 @@
                             </div><!-- ts-comments-row end -->
                             <?php } ?>
                         </div>
-                </div>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h2 class="block-title block-title-dark">
+                            <span class="title-angle-shap health-color">Etiketler </span>
+                        </h2>
+                        <div class="ts-author-comments">
+                            <?php
+                            $tags = $db->table('etiket')->orderBy('eklenme_tarihi', 'DESC')->limit(20)->getAll();
+                            $etiketler = explode(',', $tags);
+                            ?>
+                            <div class="row ts-comments-row align-items-center mb-50">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="ts-author-content">
+                                        <div class="comment">
+                                            <?php
+                                            foreach ($etiketler as $etiket){
+                                                echo etiketGetirUrl(str_replace(', ', '', $etiket));
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- ts-comments-row end -->
+                        </div>
+                    </div>
             </div><!-- sidebar col end -->
 
         </div><!-- Row end -->
