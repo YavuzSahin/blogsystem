@@ -1,8 +1,4 @@
 <?php include_once "template/header.php";?>
-<?php
-$all = $db->table('sayfa')->like('etiketler', '%'.$pageInfo->id.'%')->orderBy('guncellenme_tarihi', 'desc')->getAll();
-foreach ($all as $single){
-?>
 <article class="card">
         <amp-img alt="<?=$pageInfo->baslik;?>"
                  src="<?=$site->url;?>/upload/resized/<?=$pageInfo->resim;?>"
@@ -51,6 +47,5 @@ foreach ($all as $single){
         </ul><!-- Comments-list ul end -->
     </div><!-- comment end -->
 </article>
-<?php } ?>
 <?php include_once "template/footer.php";?>
 
