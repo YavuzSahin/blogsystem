@@ -56,12 +56,12 @@ if($page=='index'){
 }
 ob_start('compress_page');
 ?>
-!doctype html>
+<!doctype html>
 <html ⚡ lang="tr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <meta name="description" content="This is the AMP Boilerplate.">
+    <meta name="description" content="<?=$siteAciklama;?>">
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0/amp-experiment-0.1.js">
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0/amp-dynamic-css-classes-0.1.js">
