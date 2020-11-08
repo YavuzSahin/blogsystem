@@ -128,7 +128,7 @@ ob_start('compress_page');
             font-weight: 600;
         }
         .close-sidebar {
-            font-size: 16px;
+            font-size: 18px;
             padding-left: 0px;
             color: #fff;
             position: absolute;
