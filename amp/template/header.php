@@ -20,6 +20,7 @@ if($actual_link==$site->url.'/index.html'){
 }
 if($page=='index'){
     $siteBaslik     = $site->baslik;
+    $siteBaslikic   = $site->baslik_ic;
     $siteAciklama   = $site->aciklama;
     $siteKelime     = $site->kelime;
 }elseif($page=='page'){
@@ -55,56 +56,25 @@ if($page=='index'){
 }
 ob_start('compress_page');
 ?>
-<!doctype html>
-<html amp lang="tr-TR">
+!doctype html>
+<html ⚡ lang="tr">
 <head>
-    <link rel="canonical" href="<?=$actual_link;?>"/>
-    <link rel="amphtml" href="<?=$actual_link_amp;?>">
-
     <meta charset="utf-8">
-    <meta name="description" content="<?=$siteAciklama;?>">
-    <meta name="author" content="<?=$site->baslik_ic;?>">
-    <title><?=$siteBaslik;?></title>
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <link rel="shortcut icon" href="<?=$site->cdnurl;?>/images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="<?=$site->cdnurl;?>/images/favicon.ico" type="image/x-icon">
-    <?php
-    if($page=='page'){
-    ?>
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "NewsArticle",
-            "headline": "<?=$pageInfo->baslik;?>",
-            "datePublished": "<?=$pageInfo->eklenme_tarihi;?>",
-            "image": [
-                "logo.jpg"
-            ]
-        }
-    </script>
-    <?php } ?>
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
-        .hamburger {
-            padding-left: 10px;
-        }
-        .sidebar {
-            padding: 10px;
-            margin: 0;
-        }
-        .sidebar > li {
-            list-style: none;
-            margin-bottom:10px;
-        }
-        .sidebar a {
-            text-decoration: none;
-        }
-        .close-sidebar {
-            font-size: 1.5em;
-            padding-left: 5px;
-        }
+    <meta name="description" content="This is the AMP Boilerplate.">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0/amp-experiment-0.1.js">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0/amp-dynamic-css-classes-0.1.js">
+
+    <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-experiment" src="https://cdn.ampproject.org/v0/amp-experiment-0.1.js"></script>
+    <script async custom-element="amp-dynamic-css-classes" src="https://cdn.ampproject.org/v0/amp-dynamic-css-classes-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <!-- Import other AMP Extensions here -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style amp-custom>
+        /* Add your styles here */
         .home-button {
             margin-top: 8px;
         }
@@ -123,21 +93,69 @@ ob_start('compress_page');
         article {
             margin-top: 50px;
         }
+        .hamburger {
+            padding-left: 10px;
+        }
+        .sidebar {
+            padding: 10px;
+            margin: 0;
+        }
+        .sidebar > li {
+            list-style: none;
+            margin-bottom:10px;
+        }
+        .sidebar a {
+            text-decoration: none;
+        }
+        .close-sidebar {
+            font-size: 1.5em;
+            padding-left: 5px;
+        }
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
-    </style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <link rel="canonical" href="<?=$actual_link;?>"/>
+    <title><?=$siteBaslik;?></title>
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Webpage",
+            "url": "<?=$site->url;?>",
+            "name": "<?=$siteBaslik;?>",
+            "headline": "<?=$siteBaslikic;?>",
+            "description": "<?=$siteAciklama;?>",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "<?=$site->url;?>"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "<?=$site->url;?>",
+                "logo": {
+                    "url": "<?=$site->url;?>/images/logo.png",
+                    "width": 175,
+                    "height": 60,
+                    "@type": "ImageObject"
+                }
+            },
+            "image": {
+                "@type": "ImageObject",
+                "url": "<?=$site->url;?>/images/share.png",
+                "width": 1200,
+                "height": 630
+            }
+        }
+    </script>
 </head>
 <header class="headerbar">
     <div role="button" on="tap:sidebar1.toggle" tabindex="0" class="hamburger">☰</div>
-    <div class="site-name"><?=$site->baslik_ic;?></div>
+    <div class="site-name"><a href="<?=$site->url;?>"><?=$site->baslik_ic;?></a></div>
 </header>
 <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
     <div role="button" aria-label="close sidebar" on="tap:sidebar1.toggle" tabindex="0" class="close-sidebar">✕</div>
     <ul class="sidebar">
-        <?php
-        $categories = $db->table('kategori')->getAll();
-        foreach ($categories as $category){
-        ?>
-            <li><a href="<?=$site->url;?>/kategori/<?=$category->url;?>.html"><?=$category->baslik;?></a></li>
-        <?php } ?>
+        <li><a href="#">Example 1</a></li>
+        <li><a href="#">Example 2</a></li>
+        <li><a href="#">Example 3</a></li>
     </ul>
 </amp-sidebar>
