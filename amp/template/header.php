@@ -147,6 +147,7 @@ ob_start('compress_page');
         }
     </script>
 </head>
+<body>
 <header class="headerbar">
     <div role="button" on="tap:sidebar1.toggle" tabindex="0" class="hamburger">☰</div>
     <div class="site-name"><a href="<?=$site->url;?>"><?=$site->baslik_ic;?></a></div>
