@@ -42,7 +42,7 @@
             </li>
             <li>
                 <a  href="ping.php">
-                    <i class="fa fa-gears fa-spinner"></i>
+                    <i class="fa fa-gears fa-spin"></i>
                     <span>Ping Yönetimi</span>
                 </a>
             </li>
