@@ -161,10 +161,10 @@ $site = $db->table('site')->where('id', 1)->get();
                 $buffer = curl_exec($curl_handle);
                 curl_close($curl_handle);
                 if (empty($buffer)) {
-                    echo "<p class='text-danger'>Üzgünüm, ".$service." için ping işlemi başarısız oldu!</p><br>";
+                    echo "<p class='text-danger'>Üzgünüm, ".$service." için ping işlemi başarısız oldu!</p>";
                 }
                 else {
-                    echo "<p class='text-success'>".$service." için ping başarılı oldu!</p><br>";
+                    echo "<p class='text-success'>".$service." için ping başarılı oldu!</p>";
                 }
             }
 
