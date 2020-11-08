@@ -105,6 +105,24 @@ ob_start('compress_page');
             font-size: 1.5em;
             padding-left: 5px;
         }
+        .home-button {
+            margin-top: 8px;
+        }
+        .headerbar {
+            height: 50px;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .site-name {
+            margin: auto;
+        }
+        article {
+            margin-top: 50px;
+        }
 
     </style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 </head>
