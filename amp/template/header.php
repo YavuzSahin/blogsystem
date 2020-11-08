@@ -108,16 +108,19 @@ ob_start('compress_page');
             border: 1px solid #61748d;
             border-radius: 5px;
             font-size: 18px;
-            margin-bottom: 15px;
+            margin: 10px 15px;
+        }
+        article.card a{
+            text-decoration: none;
         }
         article.card h1 {
-            font-size: 18px;
+            font-size: 15px;
             color: #0c5460;
             padding: 0;
             margin: 5px 0;
         }
         article.card p {
-            font-size: 14px;
+            font-size: 12px;
             color: #61748d;
             padding: 0;
             margin: 0;
