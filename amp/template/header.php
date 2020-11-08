@@ -104,8 +104,8 @@ ob_start('compress_page');
             text-decoration: none;
         }
         article.card {
-            padding: 20px;
-            border: 1px solid #61748d;
+            padding: 10px;
+            border: 2px solid #eee;
             border-radius: 5px;
             font-size: 18px;
             margin: 10px 15px;
@@ -128,6 +128,7 @@ ob_start('compress_page');
         article.card img {
             width: 100%;
             height: auto;
+            border-radius: 5px;
         }
         .hamburger {
             padding-left: 10px;
