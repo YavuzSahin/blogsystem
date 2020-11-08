@@ -96,12 +96,14 @@ ob_start('compress_page');
         .site-name a{
             color: #fff;
             font-weight: 900;
+            text-decoration: none;
         }
         article {
             margin-top: 50px;
         }
         .hamburger {
             padding-left: 10px;
+            color: #fff;
         }
         .sidebar {
             padding: 10px;
@@ -117,6 +119,23 @@ ob_start('compress_page');
         .close-sidebar {
             font-size: 1.5em;
             padding-left: 5px;
+        }
+        amp-sidebar {
+            --story-page-vh: 1vh;
+            position: fixed!important;
+            top: 0;
+            max-height: 100vh!important;
+            height: 100vh;
+            max-width: 150px;
+            padding: 20px;
+            background-color: #0c5460;
+            min-width: 45px!important;
+            outline: none;
+            overflow-x: visible!important;
+            overflow-y: auto!important;
+            z-index: 2147483647;
+            -webkit-overflow-scrolling: touch;
+            will-change: transform;
         }
     </style>
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
