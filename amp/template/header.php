@@ -103,8 +103,28 @@ ob_start('compress_page');
             font-weight: 900;
             text-decoration: none;
         }
-        article {
-            margin-top: 50px;
+        article.card {
+            padding: 20px;
+            border: 1px solid #61748d;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        article.card h1 {
+            font-size: 18px;
+            color: #0c5460;
+            padding: 0;
+            margin: 5px 0;
+        }
+        article.card p {
+            font-size: 14px;
+            color: #61748d;
+            padding: 0;
+            margin: 0;
+        }
+        article.card img {
+            width: 100%;
+            height: auto;
         }
         .hamburger {
             padding-left: 10px;
