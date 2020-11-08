@@ -79,6 +79,7 @@ ob_start('compress_page');
             margin-top: 8px;
         }
         .headerbar {
+            font-family: 'Roboto', sans-serif;
             height: 50px;
             position: fixed;
             z-index: 999;
@@ -86,8 +87,10 @@ ob_start('compress_page');
             width: 100%;
             display: flex;
             align-items: center;
+            background-color: #0c5460;
         }
         .site-name {
+            color: #fff;
             margin: auto;
         }
         article {
