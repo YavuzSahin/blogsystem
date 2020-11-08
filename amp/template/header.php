@@ -93,6 +93,10 @@ ob_start('compress_page');
             color: #fff;
             margin: auto;
         }
+        .site-name a{
+            color: #fff;
+            font-weight: 900;
+        }
         article {
             margin-top: 50px;
         }
