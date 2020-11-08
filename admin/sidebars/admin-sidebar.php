@@ -40,6 +40,12 @@
                     <span>Yorum Yönetimi</span>
                 </a>
             </li>
+            <li>
+                <a  href="ping.php">
+                    <i class="fa fa-comment"></i>
+                    <span>Ping Yönetimi</span>
+                </a>
+            </li>
         </ul>
     </div>
 </aside>
