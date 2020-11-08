@@ -226,7 +226,7 @@ ob_start('compress_page');
 <body>
 <header class="headerbar">
     <div role="button" on="tap:sidebar1.toggle" tabindex="0" class="hamburger">☰</div>
-    <div class="site-name"><a href="<?=$site->url;?>"><?=$site->baslik_ic;?></a></div>
+    <div class="site-name"><a href="<?=$site->url;?>/amp"><?=$site->baslik_ic;?></a></div>
 </header>
 <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
     <div role="button" aria-label="close sidebar" on="tap:sidebar1.toggle" tabindex="0" class="close-sidebar">✕</div>
