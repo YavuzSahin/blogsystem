@@ -75,6 +75,10 @@ ob_start('compress_page');
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style amp-custom>
         /* Add your styles here */
+        body{
+            font-family: 'Roboto', sans-serif;
+            padding: 50px 0 0 0;
+        }
         .home-button {
             margin-top: 8px;
         }
@@ -136,7 +140,7 @@ ob_start('compress_page');
             top: 0;
             max-height: 100vh!important;
             height: 100vh;
-            max-width: 150px;
+            max-width: 200px;
             padding: 20px;
             background-color: #0c5460;
             min-width: 45px!important;
