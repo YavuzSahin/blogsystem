@@ -18,4 +18,5 @@ foreach ($all as $single){
     </a>
 </article>
 <?php } ?>
+<?php include_once "template/footer.php";?>
 
