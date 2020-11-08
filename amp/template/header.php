@@ -1,0 +1,125 @@
+<?php
+ob_start();
+require_once '../vendor/autoload.php';
+require_once '../controller/database.php';
+require_once '../controller/function-forsite.php';
+use MatthiasMullie\Minify;
+ini_set('mbstring.language','Turkish');
+setlocale(LC_TIME, "Turkish"); //ba?ka bir dil içinse burada belirteceksin.
+setlocale(LC_ALL,'Turkish'); //ba?ka bir dil içinse burada belirteceksin.
+setlocale(LC_MONETARY, 'tr_TR');
+
+$site = $db->table('site')->where('id', 1)->get();
+$page = basename($_SERVER['SCRIPT_FILENAME'], '.php');
+$actual_link        = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$actual_link_amp    = "https://$_SERVER[HTTP_HOST]/amp/$_SERVER[REQUEST_URI]";
+if($actual_link==$site->url.'/index.html'){
+    header("HTTP/1.1 301 Moved Permanently");
+    header("Location: ".$site->url);
+    exit();
+}
+if($page=='index'){
+    $siteBaslik     = $site->baslik;
+    $siteAciklama   = $site->aciklama;
+    $siteKelime     = $site->kelime;
+}elseif($page=='page'){
+    if($_GET['url']=='index.html'){header('location:'.$site->url.'/index.html');exit();}
+    $pageInfo = $db->table('sayfa')->where('url', $_GET['url'])->get();
+    if(empty($pageInfo->id)){header('location:'.$site->url.'/error.html');}
+    $db->table('sayfa')->where('id', $pageInfo->id)->update(['okunma'=>$pageInfo->okunma+1]);
+    $siteBaslik     = $pageInfo->baslik." - ".$site->baslik_ic;
+    $siteAciklama   = $pageInfo->aciklama;
+    $siteKelime     = $site->kelime;
+}elseif ($page=='category'){
+    $pageInfo = $db->table('kategori')->where('url', $_GET['url'])->get();
+    $siteBaslik     = $pageInfo->baslik." kategorisi - ".$site->baslik_ic;
+    $siteAciklama   = $pageInfo->aciklama;
+    $siteKelime     = $site->kelime;
+}elseif ($page=='tags'){
+    $pageInfo = $db->table('etiket')->where('url', $_GET['url'])->get();
+    $siteBaslik     = $pageInfo->baslik." etiketi - ".$site->baslik_ic;
+    $siteAciklama   = $pageInfo->aciklama;
+    $siteKelime     = $site->kelime;
+}elseif ($page=='search'){
+    $q = $_GET['q'];
+    //$pageInfo = $db->table('etiket')->where('url', $_GET['url'])->get();
+    $siteBaslik     = $q." için arama sonuçları - ".$site->baslik_ic;
+    $baslik         = $q." için arama sonuçları";
+    $siteAciklama   = $q.' araması için saç ekimi forum sitesinde bulunan içerikler.'.$q.' arama sonuçlarına ulaşabilirsiniz.';
+    $siteKelime     = $site->kelime;
+}elseif ($page=='error'){
+    header('HTTP/1.0 404 Not Found');
+    $siteBaslik     = "Sayfa Bulunamadı - ".$site->baslik_ic;
+    $siteAciklama   = 'aradığınız sayfa saç ekimi forum sunucularımızda bulunamadı. lütfen bağlantınızı kontrol edin.';
+    $siteKelime     = $site->kelime;
+}
+ob_start('compress_page');
+?>
+<!doctype html>
+<html amp lang="tr-TR">
+<head>
+    <link rel="canonical" href="<?=$actual_link;?>"/>
+    <link rel="amphtml" href="<?=$actual_link_amp;?>">
+
+    <meta charset="utf-8">
+    <meta name="description" content="<?=$siteAciklama;?>">
+    <meta name="author" content="<?=$site->baslik_ic;?>">
+    <title><?=$siteBaslik;?></title>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="shortcut icon" href="<?=$site->cdnurl;?>/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?=$site->cdnurl;?>/images/favicon.ico" type="image/x-icon">
+    <?php
+    if($page=='page'){
+    ?>
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "NewsArticle",
+            "headline": "<?=$pageInfo->baslik;?>",
+            "datePublished": "<?=$pageInfo->eklenme_tarihi;?>",
+            "image": [
+                "logo.jpg"
+            ]
+        }
+    </script>
+    <?php } ?>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+        .hamburger {
+            padding-left: 10px;
+        }
+        .sidebar {
+            padding: 10px;
+            margin: 0;
+        }
+        .sidebar > li {
+            list-style: none;
+            margin-bottom:10px;
+        }
+        .sidebar a {
+            text-decoration: none;
+        }
+        .close-sidebar {
+            font-size: 1.5em;
+            padding-left: 5px;
+        }
+
+    </style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+</head>
+<header class="headerbar">
+    <div role="button" on="tap:sidebar1.toggle" tabindex="0" class="hamburger">☰</div>
+    <div class="site-name"><?=$site->baslik_ic;?></div>
+</header>
+<amp-sidebar id="sidebar1" layout="nodisplay" side="left">
+    <div role="button" aria-label="close sidebar" on="tap:sidebar1.toggle" tabindex="0" class="close-sidebar">✕</div>
+    <ul class="sidebar">
+        <?php
+        $categories = $db->table('kategori')->getAll();
+        foreach ($categories as $category){
+        ?>
+            <li><a href="<?=$site->url;?>/kategori/<?=$category->url;?>.html"><?=$category->baslik;?></a></li>
+        <?php } ?>
+    </ul>
+</amp-sidebar>

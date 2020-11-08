@@ -11,7 +11,8 @@
 
     $site = $db->table('site')->where('id', 1)->get();
     $page = basename($_SERVER['SCRIPT_FILENAME'], '.php');
-    $actual_link    = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    $actual_link        = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    $actual_link_amp    = "https://$_SERVER[HTTP_HOST]/amp/$_SERVER[REQUEST_URI]";
     if($actual_link==$site->url.'/index.html'){
         header("HTTP/1.1 301 Moved Permanently");
         header("Location: ".$site->url);
@@ -58,6 +59,7 @@ ob_start('compress_page');
 <html lang="tr-TR">
 <head>
     <link rel="canonical" href="<?=$actual_link;?>"/>
+    <link rel="amphtml" href="<?=$actual_link_amp;?>">
 
     <!-- Basic Page Needs
     ================================================== -->
