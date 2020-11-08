@@ -30,7 +30,7 @@
                                     <a href="<?=$site->url;?>/<?=$single->url;?>.html"><?=$single->baslik;?></a>
                                 </h2>
                                 <div class="post-meta mb-7">
-                                    <span class="post-date"><i class="fa fa-clock-o"></i> <?php echo iconv('latin5','utf-8',strftime(' %d %B %Y ',strtotime(date($popular->eklenme_tarihi))));?></span>
+                                    <span class="post-date"><i class="fa fa-clock-o"></i> <?php echo iconv('latin5','utf-8',strftime(' %d %B %Y ',strtotime(date($single->eklenme_tarihi))));?></span>
                                 </div>
                             </div><!-- Post content end -->
                         </div>

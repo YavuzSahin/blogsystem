@@ -109,6 +109,7 @@ ob_start('compress_page');
         .hamburger {
             padding-left: 10px;
             color: #fff;
+            outline: none;
         }
         .sidebar {
             padding: 10px;
@@ -134,6 +135,7 @@ ob_start('compress_page');
             position: absolute;
             right: -17px;
             top: 16px;
+            outline: none;
         }
         amp-sidebar {
             --story-page-vh: 1vh;
