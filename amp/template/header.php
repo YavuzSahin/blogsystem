@@ -94,6 +94,7 @@ ob_start('compress_page');
             background-color: #0c5460;
         }
         .site-name {
+            font-size: 18px;
             color: #fff;
             margin: auto;
         }
@@ -137,6 +138,7 @@ ob_start('compress_page');
         amp-sidebar {
             --story-page-vh: 1vh;
             position: fixed!important;
+            font-size: 18px;
             top: 0;
             max-height: 100vh!important;
             height: 100vh;
