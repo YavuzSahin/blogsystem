@@ -111,14 +111,24 @@ ob_start('compress_page');
         }
         .sidebar > li {
             list-style: none;
-            margin-bottom:10px;
+            margin-bottom: 10px;
+            width: 100%;
+            /* margin-bottom: 5px; */
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
         }
         .sidebar a {
             text-decoration: none;
+            color: #fff;
+            font-weight: 600;
         }
         .close-sidebar {
-            font-size: 1.5em;
-            padding-left: 5px;
+            font-size: 16px;
+            padding-left: 0px;
+            color: #fff;
+            position: absolute;
+            right: -17px;
+            top: 16px;
         }
         amp-sidebar {
             --story-page-vh: 1vh;
@@ -132,7 +142,7 @@ ob_start('compress_page');
             min-width: 45px!important;
             outline: none;
             overflow-x: visible!important;
-            overflow-y: auto!important;
+            overflow-y: visible!important;
             z-index: 2147483647;
             -webkit-overflow-scrolling: touch;
             will-change: transform;
@@ -181,8 +191,11 @@ ob_start('compress_page');
 <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
     <div role="button" aria-label="close sidebar" on="tap:sidebar1.toggle" tabindex="0" class="close-sidebar">✕</div>
     <ul class="sidebar">
-        <li><a href="#">Example 1</a></li>
-        <li><a href="#">Example 2</a></li>
-        <li><a href="#">Example 3</a></li>
+        <?php
+        $categories = $db->table('kategori')->getAll();
+        foreach ($categories as $category){
+            ?>
+            <li><a href="<?=$site->url;?>/kategori/<?=$category->url;?>.html"><?=$category->baslik;?></a></li>
+        <?php } ?>
     </ul>
 </amp-sidebar>
