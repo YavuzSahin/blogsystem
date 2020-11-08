@@ -129,7 +129,12 @@ $site = $db->table('site')->where('id', 1)->get();
     <section id="main-content">
         <section class="wrapper">
             <!-- page start-->
-            <?php
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="card">
+                        <header class="card-header">Ping İşlemi</header>
+                        <div class="card-body">
+                            <?php
             $sitemap = $site->url.'/sitemap.xml';
 
             function pingSE($sitemap,$service){
@@ -169,6 +174,10 @@ $site = $db->table('site')->where('id', 1)->get();
             pingSE($sitemap,'moreover');
 
             ?>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </section>
     </section>
 
