@@ -18,5 +18,4 @@ foreach ($all as $single){
     </a>
 </article>
 <?php } ?>
-</body>
-</html>
+
