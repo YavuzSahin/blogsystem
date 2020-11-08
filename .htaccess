@@ -69,3 +69,4 @@ RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
    php_flag zlib.output_compression On
 </IfModule>
 # END cPanel-generated php ini directives, do not edit
+
