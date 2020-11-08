@@ -235,7 +235,7 @@ ob_start('compress_page');
         $categories = $db->table('kategori')->getAll();
         foreach ($categories as $category){
             ?>
-            <li><a href="<?=$site->url;?>/kategori/<?=$category->url;?>.html"><?=$category->baslik;?></a></li>
+            <li><a href="<?=$site->url;?>/amp/kategori/<?=$category->url;?>.html"><?=$category->baslik;?></a></li>
         <?php } ?>
     </ul>
 </amp-sidebar>

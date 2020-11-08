@@ -1,6 +1,6 @@
 <?php include_once "template/header.php";?>
 <?php
-$all = $db->table('sayfa')->orderBy('eklenme_tarihi', 'desc')->getAll();
+$all = $db->table('sayfa')->like('etiketler', '%'.$pageInfo->id.'%')->orderBy('guncellenme_tarihi', 'desc')->getAll();
 foreach ($all as $single){
 ?>
 <article class="card">
